@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    
+</head>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+    
+    h2 {
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    textarea {
+        resize: vertical;
+    }
+    
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+    .confirmation-message {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="confirmationMessage" class="confirmation-message"></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+        
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+        
+                // Get the form input values
+                const name = contactForm.name.value;
+                const email = contactForm.email.value;
+                const subject = contactForm.subject.value;
+                const message = contactForm.message.value;
+        
+                // Here, you can add your form validation logic
+                // For simplicity, let's assume all fields are required
+        
+                // Display a confirmation message
+                confirmationMessage.textContent = `Thank you, ${name}! Your message has been sent.`;
+        
+                // Clear the form fields after submission
+                contactForm.reset();
+            });
+        });
+        
+    </script>
+</body>
+</html>
